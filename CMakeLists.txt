@@ -6,7 +6,7 @@ project(harmony)
 set(CMAKE_CXX_STANDARD 17)
 
 # Request the required wxWidgets libs
-find_package(wxWidgets COMPONENTS core base REQUIRED)
+find_package(wxWidgets COMPONENTS base core net xml gl media ribbon stc webview html aui xrc richtext qa REQUIRED)
 
 # Include the wxWidgets use file to initialize various settings
 include(${wxWidgets_USE_FILE})
