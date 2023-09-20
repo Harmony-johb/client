@@ -15,7 +15,7 @@ The steps to do this are the following:
 - Finally, one must add an environment variable called "WXWIN" which points to <wx_install_dir>.
 Apart from installing the library, Cmake must also be installed (version 3.27.0 or higher).
 ## Building and running the project
-After having set up the build environment, the project can be built on the command line at the project's root by running
+After having set up the [build environment](##build-environment), the project can be built on the command line at the project's root by running
 ```
 cmake -B build
 ```
