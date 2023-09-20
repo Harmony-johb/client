@@ -4,7 +4,7 @@
 wxIMPLEMENT_APP(App);
 
 bool App::OnInit() {
-	MainFrame* mainFrame = new MainFrame("test");
+	MainFrame* mainFrame = new MainFrame("Harmony");
 	mainFrame->Show();
 
 	return true;
