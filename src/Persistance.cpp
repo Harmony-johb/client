@@ -12,8 +12,10 @@ void Persistance::SaveWindowProps(MainFrame& window)
 	std::ofstream ostream(FILENAME_WINDOW_PROPS);
 	wxPoint pos = window.GetPosition();
 	wxSize size = window.GetSize();
+	bool is_maximized = window.IsMaximized();
 	ostream << pos.x << " " << pos.y << "\n";
 	ostream << size.x << " " << size.y << "\n";
+	ostream << is_maximized << "\n";
 }
 
 void Persistance::LoadWindowProps(MainFrame& window)
@@ -26,8 +28,15 @@ void Persistance::LoadWindowProps(MainFrame& window)
 	std::ifstream istream(FILENAME_WINDOW_PROPS);
 	wxPoint pos;
 	wxSize size;
+	bool is_maximized;
 	istream >> pos.x >> pos.y;
 	istream >> size.x >> size.y;
+	istream >> is_maximized;
 	window.SetPosition(pos);
-	window.SetSize(size);
+	if (is_maximized) {
+		window.Maximize();
+		window.SetSize(DEFAULT_WINDOW_SIZE);
+	}
+	else
+		window.SetSize(size);
 }
