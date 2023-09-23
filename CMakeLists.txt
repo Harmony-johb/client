@@ -16,6 +16,9 @@ set(SRC_FILES
     src/App.cpp
     src/MainFrame.cpp
     src/Persistance.cpp
+    src/ServerList.cpp
+    src/ConversationList.cpp
+    src/ChatArea.cpp
 )
 
 # Define the build target for the executable

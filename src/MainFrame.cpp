@@ -1,12 +1,13 @@
 #include "MainFrame.h"
 #include <wx/wx.h>
 #include "Persistance.h"
+#include <ServerList.h>
 
 MainFrame::MainFrame(const wxString title) : wxFrame(nullptr, wxID_ANY, title)
 {
 	Persistance::LoadWindowProps(*this);
-	CreateControls();
-	BindEventHandlers();
+	CreateComponents();
+	CreateLayout();
 	CreateStatusBar();
 }
 
@@ -15,20 +16,19 @@ MainFrame::~MainFrame()
 	Persistance::SaveWindowProps(*this);
 }
 
-void MainFrame::CreateControls()
+void MainFrame::CreateComponents()
 {
-	panel = new wxPanel(this);
-	button = new wxButton(panel, wxID_ANY, "button", wxPoint(100, 50), wxDefaultSize);
+	server_list = new ServerList(this);
+	conversation_list = new ConversationList(this);
+	chat_area = new ChatArea(this);
 }
 
-void MainFrame::BindEventHandlers()
+void MainFrame::CreateLayout()
 {
-	button->Bind(wxEVT_BUTTON, &MainFrame::OnButtonClick, this);
+	wxBoxSizer* h_sizer = new wxBoxSizer(wxHORIZONTAL);
+	h_sizer->Add(server_list, 0, wxEXPAND | wxALL, 0);
+	h_sizer->Add(conversation_list, 0, wxEXPAND | wxALL, 0);
+	h_sizer->Add(chat_area, 1, wxEXPAND | wxALL, 0);
+	this->SetSizer(h_sizer);
+	this->Layout();
 }
-
-void MainFrame::OnButtonClick(wxCommandEvent& evt)
-{
-	static int counter = 0;
-	wxLogStatus(wxString::Format("hello %d", counter++));
-}
-
