@@ -19,4 +19,3 @@ private:
 	ConversationList* conversation_list;
 	ChatArea* chat_area;
 };
-
