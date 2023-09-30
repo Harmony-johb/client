@@ -1,8 +1,9 @@
 #pragma once
 #include <wx/wx.h>
-#include <ServerList.h>
-#include <ConversationList.h>
-#include <ChatArea.h>
+#include <SideBar1.h>
+#include <SideBar2.h>
+#include <MainArea.h>
+#include <ControlArea.h>
 
 class MainFrame : public wxFrame
 {
@@ -11,11 +12,11 @@ public:
 	~MainFrame();
 
 private:
-	void CreateComponents();
-	void CreateLayout();
+	void Initialize();
 
 private:
-	ServerList* server_list;
-	ConversationList* conversation_list;
-	ChatArea* chat_area;
+	SideBar1* side_bar_1;
+	SideBar2* side_bar_2;
+	MainArea* main_area;
+	ControlArea* ctrl_area;
 };

@@ -21,13 +21,17 @@ set(SRC_FILES
     src/ChatArea.cpp
     src/MessageList.cpp
     src/MessageWritingBox.cpp
+    src/ControlArea.cpp
+    src/MainArea.cpp
+    src/SideBar1.cpp
+    src/SideBar2.cpp
 )
 
 # Define the build target for the executable
 add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SRC_FILES})
 
 # Define include directory containing header files
-target_include_directories(${PROJECT_NAME} PRIVATE include/model include/view)
+target_include_directories(${PROJECT_NAME} PRIVATE include/model include/view include/view/top)
 
 # Link required libraries to the executable
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

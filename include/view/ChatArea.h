@@ -9,7 +9,7 @@ class ChatArea : public wxPanel
 public:
     ChatArea(wxWindow* parent);
 private:
-    void CreateComponents();
+    void Initialize();
     void CreateLayout();
 private:
     MessageList* message_list;

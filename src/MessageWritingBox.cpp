@@ -4,11 +4,11 @@
 MessageWritingBox::MessageWritingBox(wxWindow* parent) : wxPanel(parent, wxID_ANY)
 {
     this->SetBackgroundColour(wxColour(56,58,64));
-    CreateComponents();
+    Initialize();
     CreateLayout();
 }
 
-void MessageWritingBox::CreateComponents()
+void MessageWritingBox::Initialize()
 {
     text_input = new wxTextCtrl(this, wxID_ANY, "hello");
     send_button = new wxButton(this, wxID_ANY, "Send");

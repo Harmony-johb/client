@@ -4,11 +4,11 @@
 ChatArea::ChatArea(wxWindow *parent) : wxPanel(parent, wxID_ANY)
 {
     this->SetBackgroundColour(wxColour(49,51,56));
-    CreateComponents();
+    Initialize();
     CreateLayout();
 }
 
-void ChatArea::CreateComponents()
+void ChatArea::Initialize()
 {
     message_list = new MessageList(this);
     message_writing_box = new MessageWritingBox(this);
