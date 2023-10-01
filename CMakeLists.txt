@@ -13,25 +13,27 @@ include(${wxWidgets_USE_FILE})
 
 # Define a variable containing a list of source files for the project
 set(SRC_FILES 
-    src/App.cpp
-    src/MainFrame.cpp
-    src/Persistance.cpp
-    src/ServerList.cpp
-    src/ConversationList.cpp
-    src/ChatArea.cpp
-    src/MessageList.cpp
-    src/MessageWritingBox.cpp
-    src/ControlArea.cpp
-    src/MainArea.cpp
-    src/SideBar1.cpp
-    src/SideBar2.cpp
+    src/model/App.cpp
+    src/model/Persistance.cpp
+
+    src/view/MainFrame.cpp
+        src/view/components/ServerList.cpp
+        src/view/components/ConversationList.cpp
+        src/view/components/ChatArea.cpp
+        src/view/components/MessageList.cpp
+        src/view/components/MessageWritingBox.cpp
+
+        src/view/containers/ControlArea.cpp
+        src/view/containers/MainArea.cpp
+        src/view/containers/SideBar1.cpp
+        src/view/containers/SideBar2.cpp
 )
 
 set(INCL_FILES
     "include/model"
     "include/view"
     "include/view/components"
-    "include/view/top"
+    "include/view/containers"
 )
 
 # Define the build target for the executable
