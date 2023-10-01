@@ -1,4 +1,4 @@
-#include "ControlArea.h"
+#include <view/containers/ControlArea.h>
 
 ControlArea::ControlArea(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size)
  : wxPanel(parent, winid, pos, size)

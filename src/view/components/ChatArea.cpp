@@ -1,5 +1,6 @@
-#include "ChatArea.h"
-#include <MessageList.h>
+#include <view/components/ChatArea.h>
+#include <view/components/MessageList.h>
+#include <view/components/MessageWritingBox.h>
 
 ChatArea::ChatArea(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size)
  : wxPanel(parent, winid, pos, size)

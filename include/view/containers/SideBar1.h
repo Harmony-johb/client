@@ -1,6 +1,6 @@
 #pragma once
 #include <wx/wx.h>
-#include <ServerList.h>
+#include <view/components/ServerList.h>
 
 class SideBar1 : public wxPanel
 {

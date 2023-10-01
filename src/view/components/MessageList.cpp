@@ -1,4 +1,4 @@
-#include <MessageList.h>
+#include <view/components/MessageList.h>
 #include <wx/wx.h>
 #include <wx/vscroll.h>
 
