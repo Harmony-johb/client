@@ -4,5 +4,6 @@
 class Message
 {
 private:
+    int id;
     std::string value;
 };

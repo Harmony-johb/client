@@ -4,5 +4,7 @@
 class User
 {
 private:
-    std::string name;
+    int id;
+    std::string username;
+    std::vector<int> chat_ids;
 };
