@@ -1,8 +1,8 @@
 #pragma once
 #include <wx/wx.h>
 #include <wx/vscroll.h>
-#include <MessageList.h>
-#include <MessageWritingBox.h>
+#include <view/components/MessageList.h>
+#include <view/components/MessageWritingBox.h>
 
 class ChatArea : public wxPanel
 {

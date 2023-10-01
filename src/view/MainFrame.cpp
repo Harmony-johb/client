@@ -1,7 +1,6 @@
-#include "MainFrame.h"
+#include <view/MainFrame.h>
+#include <model/Persistance.h>
 #include <wx/wx.h>
-#include "Persistance.h"
-#include <ServerList.h>
 #include <wx/gbsizer.h>
 
 MainFrame::MainFrame(const wxString title) : wxFrame(nullptr, wxID_ANY, title)

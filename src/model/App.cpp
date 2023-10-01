@@ -1,5 +1,5 @@
-#include "App.h"
-#include "MainFrame.h"
+#include "model/App.h"
+#include "view/MainFrame.h"
 
 wxIMPLEMENT_APP(App);
 

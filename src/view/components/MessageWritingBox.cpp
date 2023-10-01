@@ -1,4 +1,4 @@
-#include <MessageWritingBox.h>
+#include <view/components/MessageWritingBox.h>
 #include <wx/wx.h>
 
 MessageWritingBox::MessageWritingBox(wxWindow* parent, wxWindowID winid, wxPoint pos, wxSize size)
