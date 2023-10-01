@@ -13,10 +13,17 @@ include(${wxWidgets_USE_FILE})
 
 # Define a variable containing a list of source files for the project
 set(SRC_FILES 
+    src/controller/ChatController.cpp
+
+    src/integration/Persistance.cpp
+
     src/model/App.cpp
-    src/model/Persistance.cpp
+    src/model/Chat.cpp
+    src/model/Message.cpp
+    src/model/User.cpp
 
     src/view/MainFrame.cpp
+
         src/view/components/ServerList.cpp
         src/view/components/ConversationList.cpp
         src/view/components/ChatArea.cpp
@@ -33,7 +40,7 @@ set(SRC_FILES
 add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SRC_FILES})
 
 # Define include directory containing header files
-target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(${PROJECT_NAME} PRIVATE src/controller src/integration src/model src/view src/view/components src/view/containers)
 
 # Link required libraries to the executable
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

@@ -1,4 +1,4 @@
-#include <view/containers/SideBar1.h>
+#include "SideBar1.h"
 
 SideBar1::SideBar1(wxWindow* parent, wxWindowID winid, wxPoint pos, wxSize size) 
  : wxPanel(parent, winid, pos, size)

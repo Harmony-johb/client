@@ -1,5 +1,5 @@
-#include "model/Persistance.h"
-#include "view/MainFrame.h"
+#include "Persistance.h"
+#include "MainFrame.h"
 #include <string>
 #include <filesystem>
 #include <fstream>

@@ -8,6 +8,10 @@ public:
 
 private:
     void Initialize();
+    void BindEventHandlers();
+
+private:
+    void OnSendButtonClicked(wxCommandEvent& evt);
     
 private:
     wxTextCtrl* text_input;

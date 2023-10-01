@@ -1,5 +1,5 @@
 #pragma once
-#include <view/MainFrame.h>
+#include <MainFrame.h>
 
 class Persistance
 {

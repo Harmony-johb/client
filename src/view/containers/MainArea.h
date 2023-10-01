@@ -1,6 +1,6 @@
 #pragma once
 #include <wx/wx.h>
-#include <view/components/ChatArea.h>
+#include <ChatArea.h>
 
 class MainArea : public wxPanel
 {

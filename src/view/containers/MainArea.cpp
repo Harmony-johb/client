@@ -1,4 +1,4 @@
-#include <view/containers/MainArea.h>
+#include "MainArea.h"
 
 MainArea::MainArea(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size)
  : wxPanel(parent, winid, pos, size)

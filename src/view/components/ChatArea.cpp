@@ -1,12 +1,13 @@
-#include <view/components/ChatArea.h>
-#include <view/components/MessageList.h>
-#include <view/components/MessageWritingBox.h>
+#include "ChatArea.h"
+#include "MessageList.h"
+#include "MessageWritingBox.h"
 
 ChatArea::ChatArea(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size)
  : wxPanel(parent, winid, pos, size)
 {
     this->SetBackgroundColour(wxColour(49,51,56));
     Initialize();
+    BindEventHandlers();
 }
 
 void ChatArea::Initialize()
@@ -21,3 +22,13 @@ void ChatArea::Initialize()
 	this->Layout();
 }
 
+void ChatArea::BindEventHandlers()
+{
+    this->Bind(wxEVT_BUTTON, &ChatArea::OnSendButtonClicked, this);
+}
+
+void ChatArea::OnSendButtonClicked(wxCommandEvent &evt)
+{
+    wxLogMessage(evt.GetString());
+
+}
