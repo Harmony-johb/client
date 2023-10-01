@@ -27,11 +27,18 @@ set(SRC_FILES
     src/SideBar2.cpp
 )
 
+set(INCL_FILES
+    "include/model"
+    "include/view"
+    "include/view/components"
+    "include/view/top"
+)
+
 # Define the build target for the executable
 add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SRC_FILES})
 
 # Define include directory containing header files
-target_include_directories(${PROJECT_NAME} PRIVATE include/model include/view include/view/top)
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_FILES})
 
 # Link required libraries to the executable
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
