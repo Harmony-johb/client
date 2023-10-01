@@ -1,5 +1,5 @@
-#include <view/MainFrame.h>
-#include <model/Persistance.h>
+#include "MainFrame.h"
+#include <Persistance.h>
 #include <wx/wx.h>
 #include <wx/gbsizer.h>
 

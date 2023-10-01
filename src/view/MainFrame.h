@@ -1,9 +1,9 @@
 #pragma once
 #include <wx/wx.h>
-#include <view/containers/SideBar1.h>
-#include <view/containers/SideBar2.h>
-#include <view/containers/MainArea.h>
-#include <view/containers/ControlArea.h>
+#include <SideBar1.h>
+#include <SideBar2.h>
+#include <MainArea.h>
+#include <ControlArea.h>
 
 class MainFrame : public wxFrame
 {

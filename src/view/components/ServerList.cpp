@@ -1,4 +1,4 @@
-#include <view/components/ServerList.h>
+#include "ServerList.h"
 
 ServerList::ServerList(wxWindow* parent, wxWindowID winid, wxPoint pos, wxSize size)
  : wxPanel(parent, winid, pos, size)
