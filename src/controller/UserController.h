@@ -1,10 +1,10 @@
 #pragma once
-#include <Chat.h>
+#include <User.h>
 
-class ChatController
+class UserController
 {
 private:
-    static Chat *chat;
+    static User *user;
 
 public:
     static void Initialize();
