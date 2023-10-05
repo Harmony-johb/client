@@ -35,10 +35,6 @@ src/App.cpp
         src/view/components/MessageList.cpp
         src/view/components/MessageWritingBox.cpp
 
-        src/view/pages/ControlArea.cpp
-        src/view/pages/MainArea.cpp
-        src/view/pages/SideBar1.cpp
-        src/view/pages/SideBar2.cpp
 )
 
 # Define the build target for the executable
