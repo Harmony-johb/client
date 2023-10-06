@@ -16,16 +16,12 @@ MainFrame::~MainFrame()
 
 void MainFrame::Initialize()
 {
-	wxGridBagSizer* gb_sizer = new wxGridBagSizer();
-	gb_sizer->SetFlexibleDirection(wxBOTH);
-	gb_sizer->SetNonFlexibleGrowMode(wxFLEX_GROWMODE_NONE);
-
-	gb_sizer->AddGrowableCol(0, 0);
-	gb_sizer->AddGrowableCol(1, 0);
-	gb_sizer->AddGrowableCol(2, 1);
-	
-	gb_sizer->AddGrowableRow(0, 1);
-	gb_sizer->AddGrowableRow(1, 0);
-
-	this->SetSizer(gb_sizer);
+	_main_page = new MainPage(this);
+	_settings_page = new SettingsPage(this);
+	_authentication_page = new AuthenticationPage(this);
+	_navigator = Navigator()
+					 .Add("main_page", {_main_page})
+					 .Add("settings_page", {_settings_page})
+					 .Add("authentication_page", {_authentication_page})
+					 .Set("main_page");
 }
