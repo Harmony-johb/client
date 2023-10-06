@@ -5,22 +5,23 @@
 using ObserverID = std::size_t;
 
 template <typename... callback_arg_types>
-class Observable
+class Entity
 {
 public:
     using CallbackFunction = void (*)(callback_arg_types...);
 
-private:
+protected:
     std::unordered_map<ObserverID, CallbackFunction> _observers;
 
 public:
-    ObserverID AttachObserver(CallbackFunction callback)
+    ObserverID Subscribe(CallbackFunction callback)
     {
         ObserverID id = getID(callback);
         _observers.emplace(id, callback);
         return id;
     }
-    bool DetachObserver(ObserverID &id)
+
+    bool Unsubscribe(ObserverID &id)
     {
         const auto it = _observers.find(id);
         if (it == _observers.end())
@@ -29,13 +30,14 @@ public:
         id = ObserverID();
         return true;
     }
-    void NotifyAllObservers(callback_arg_types... args)
+
+    void Notify(callback_arg_types... args)
     {
         for (const auto &observer : _observers)
             observer.second(args...);
     }
 
-private:
+protected:
     ObserverID getID(void (*callback)(callback_arg_types...))
     {
         typedef void (*func_type)(callback_arg_types...);

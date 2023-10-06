@@ -9,10 +9,6 @@ wxIMPLEMENT_APP(App);
 
 bool App::OnInit()
 {
-	ChatController::Initialize();
-	MessageController::Initialize();
-	ServerController::Initialize();
-	UserController::Initialize();
 	MainFrame *mainFrame = new MainFrame("Harmony");
 	mainFrame->Show();
 

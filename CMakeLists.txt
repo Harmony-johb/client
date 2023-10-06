@@ -13,28 +13,28 @@ include(${wxWidgets_USE_FILE})
 
 # Define a variable containing a list of source files for the project
 set(SRC_FILES 
-src/App.cpp
+    src/App.cpp
 
-    src/controller/ChatController.cpp
-    src/controller/MessageController.cpp
-    src/controller/ServerController.cpp
-    src/controller/UserController.cpp
+        src/controller/ChatController.cpp
+        src/controller/MessageController.cpp
+        src/controller/ServerController.cpp
+        src/controller/UserController.cpp
 
-    src/integration/Persistance.cpp
+        src/integration/Persistance.cpp
 
-    src/model/Chat.cpp
-    src/model/Message.cpp
-    src/model/Server.cpp
-    src/model/User.cpp
+        src/model/SessionState.cpp
+        src/model/Chat.cpp
+        src/model/Message.cpp
+        src/model/Server.cpp
+        src/model/User.cpp
 
-    src/view/MainFrame.cpp
+        src/view/MainFrame.cpp
 
-        src/view/components/ServerList.cpp
-        src/view/components/ConversationList.cpp
-        src/view/components/ChatArea.cpp
-        src/view/components/MessageList.cpp
-        src/view/components/MessageWritingBox.cpp
-
+            src/view/components/ServerList.cpp
+            src/view/components/ConversationList.cpp
+            src/view/components/ChatArea.cpp
+            src/view/components/MessageList.cpp
+            src/view/components/MessageWritingBox.cpp
 )
 
 # Define the build target for the executable
