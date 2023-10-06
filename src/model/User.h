@@ -5,6 +5,11 @@
 #include <Server.h>
 #include <Chat.h>
 
+/**
+ * @brief The Subject class of the proxy pattern.
+ * Defines the common interface between the Proxy and the RealSubject.
+ *
+ */
 class User
 {
 public:
@@ -22,6 +27,12 @@ protected:
     int _id;
 };
 
+/**
+ * @brief The RealSubject class of the proxy pattern.
+ * Represents an actual object of the entity stored on the local machine.
+ * Responsible for fetching the required data at instantiation.
+ *
+ */
 class LocalUser : public User
 {
 public:
@@ -40,6 +51,13 @@ private:
     std::unordered_map<int, User *> _friends;
 };
 
+/**
+ * @brief The Proxy class of the proxy pattern.
+ * Represents a placeholder for an object of the entity.
+ * Implements lazy loading of remote data.
+ * Responsible for instantiating a RealSubject when needed.
+ *
+ */
 class RemoteUser : public User
 {
 public:
