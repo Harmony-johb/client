@@ -2,8 +2,11 @@
 #include <stdexcept>
 
 Component::Component(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size)
-    : wxPanel(parent, winid, pos, size)
 {
+    _parent = parent;
+    _winid = winid;
+    _pos = pos;
+    _size = size;
 }
 
 Component::~Component()
@@ -12,13 +15,16 @@ Component::~Component()
 
 void Component::Load()
 {
+    _panel = new wxPanel(_parent, _winid, _pos, _size);
+    LoadCustom();
 }
 
 void Component::Unload()
 {
-    // if (!GetChildren().empty())
-    //     for (auto child : GetChildren())
-    //         child.UnLoad();
-    // if (!DestroyChildren())
-    //     throw std::domain_error("Could not destroy child: " + this->GetName());
+    _panel->Destroy();
+}
+
+wxPanel *Component::GetPanel()
+{
+    return _panel;
 }

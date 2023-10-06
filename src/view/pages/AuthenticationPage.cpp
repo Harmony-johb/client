@@ -9,10 +9,10 @@ AuthenticationPage::~AuthenticationPage()
 {
 }
 
-void AuthenticationPage::Unload()
+void AuthenticationPage::Load()
 {
 }
 
-void AuthenticationPage::Load()
+void AuthenticationPage::Unload()
 {
 }

@@ -32,15 +32,7 @@ set(SRC_FILES
         src/view/Navigator.cpp
         src/view/Component.cpp
 
-            src/view/components/ServerList.cpp
-            src/view/components/ConversationList.cpp
-            src/view/components/ChatArea.cpp
-            src/view/components/MessageList.cpp
-            src/view/components/MessageWritingBox.cpp
-            src/view/components/NavBar.cpp
-            src/view/components/ConversationView.cpp
-            src/view/components/ServerView.cpp
-            src/view/components/ControlArea.cpp
+            
 
             src/view/pages/MainPage.cpp
             src/view/pages/AuthenticationPage.cpp

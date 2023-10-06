@@ -10,6 +10,4 @@ public:
 public:
     void Load();
     void Unload();
-
-private:
 };

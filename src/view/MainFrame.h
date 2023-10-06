@@ -8,14 +8,22 @@
 class MainFrame : public wxFrame
 {
 public:
+	static MainFrame *Instance(const wxString title = "");
+
+protected:
 	MainFrame(const wxString title);
 	~MainFrame();
 
 private:
-	void Initialize();
+	static MainFrame *_instance;
 
 private:
+	void Initialize();
+
+public:
 	Navigator _navigator;
+
+private:
 	MainPage *_main_page;
 	AuthenticationPage *_authentication_page;
 	SettingsPage *_settings_page;
