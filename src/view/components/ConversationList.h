@@ -1,5 +1,6 @@
 #pragma once
 #include <Component.h>
+#include <UserController.h>
 
 class ConversationList : public Component
 {
@@ -9,4 +10,7 @@ public:
 
 private:
     void LoadCustom();
+
+private:
+    UserController _user_controller;
 };

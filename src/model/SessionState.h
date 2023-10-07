@@ -16,4 +16,10 @@ protected:
 
 private:
     static SessionState *_instance;
+
+public:
+    User *GetActiveUser();
+
+private:
+    User *_active_user;
 };

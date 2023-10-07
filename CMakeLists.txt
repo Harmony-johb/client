@@ -20,6 +20,7 @@ set(SRC_FILES
         src/controller/ServerController.cpp
         src/controller/UserController.cpp
 
+        src/integration/FakeDatabase.cpp
         src/integration/Persistance.cpp
 
         src/model/SessionState.cpp

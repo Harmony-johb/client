@@ -11,4 +11,10 @@ SessionState *SessionState::Instance()
 
 SessionState::SessionState()
 {
+    _active_user = new RemoteUser(1);
+}
+
+User *SessionState::GetActiveUser()
+{
+    return _active_user;
 }

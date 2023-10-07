@@ -1,4 +1,5 @@
 #include "Chat.h"
+#include <FakeDatabase.h>
 
 Chat::Chat(int id)
 {
@@ -8,6 +9,13 @@ Chat::Chat(int id)
 LocalChat::LocalChat(int id)
     : Chat(id)
 {
+    // TODO Fill member variables from real database
+    if (FakeDatabase::chat_table.find(id) == FakeDatabase::chat_table.end())
+        return;
+    auto chat = FakeDatabase::chat_table.at(id);
+    _chatname = std::get<0>(chat);
+    for (int message_id : std::get<1>(chat))
+        _messages.insert({message_id, new RemoteMessage(message_id)});
 }
 
 std::string LocalChat::GetChatname()
