@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <User.h>
+class User;
 
 /**
  * @brief The Subject class of the proxy pattern.
