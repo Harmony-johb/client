@@ -1,22 +1,12 @@
 #pragma once
-#include <wx/wx.h>
-#include <wx/vscroll.h>
-#include <MessageList.h>
-#include <MessageWritingBox.h>
+#include <Component.h>
 
-class ChatArea : public wxPanel
+class ChatArea : public Component
 {
 public:
-    ChatArea(wxWindow* parent, wxWindowID winid = wxID_ANY, wxPoint pos = wxDefaultPosition, wxSize size = wxDefaultSize);
+    ChatArea(wxWindow *parent, wxWindowID winid = wxID_ANY, wxPoint pos = wxDefaultPosition, wxSize size = wxDefaultSize);
+    ~ChatArea();
 
 private:
-    void Initialize();
-    void BindEventHandlers();
-
-private:
-    void OnSendButtonClicked(wxCommandEvent& evt);
-    
-private:
-    MessageList* message_list;
-    MessageWritingBox* message_writing_box;
+    void LoadCustom();
 };

@@ -1,21 +1,16 @@
 #pragma once
-#include <string>
-#include <User.h>
 
 /**
  * @brief The Subject class of the proxy pattern.
  * Defines the common interface between the Proxy and the RealSubject.
  *
  */
-class Message
+class Server
 {
 public:
-    Message(int id);
+    Server(int id);
 
 public:
-    virtual std::string GetContent() = 0;
-    virtual User *GetSender() = 0;
-
 protected:
     int _id;
 };
@@ -26,18 +21,10 @@ protected:
  * Responsible for fetching the required data at instantiation.
  *
  */
-class LocalMessage : public Message
+class LocalServer : public Server
 {
 public:
-    LocalMessage(int id);
-
-public:
-    std::string GetContent();
-    User *GetSender();
-
-private:
-    std::string _content;
-    User *_sender;
+    LocalServer(int id);
 };
 
 /**
@@ -47,18 +34,14 @@ private:
  * Responsible for instantiating a RealSubject when needed.
  *
  */
-class RemoteMessage : public Message
+class RemoteServer : public Server
 {
 public:
-    RemoteMessage(int id);
-
-public:
-    std::string GetContent();
-    User *GetSender();
+    RemoteServer(int id);
 
 private:
-    void InitializeLocalMessage();
+    void InitializeLocalServer();
 
 private:
-    LocalMessage *_local_message;
+    LocalServer *_local_server;
 };
