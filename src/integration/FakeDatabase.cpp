@@ -48,6 +48,6 @@ std::unordered_map<int, std::tuple<std::string, int>> FakeDatabase::message_tabl
     {16, {"Goodbye", 8}},
     {17, {"Hello Rakuchan, it is me. Hitoshisan!", 9}},
     {18, {"Oh hello Hitoshisaaaaaaaaaaaaaan is it really you? uWu", 10}},
-    {19, {"Yes, and I think you're downright sugoi", 9}},
-    {20, {"Deku Hitoshisaaaaaaaaaaaaaaaaaaaaaaaaaaan nyaaaaaaaa!", 10}},
+    {19, {"Yes, and I think you're downright sugoi, nya rawr", 9}},
+    {20, {"Desu Hitoshisaaaaaaaaaaaaaaaaaaaaaaaaaaan nyaaaaaaaa!", 10}},
 };
