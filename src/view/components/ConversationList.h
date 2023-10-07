@@ -1,16 +1,8 @@
 #pragma once
-#include <Component.h>
-#include <UserController.h>
+#include <wx/wx.h>
 
-class ConversationList : public Component
+class ConversationList : public wxPanel
 {
 public:
-    ConversationList(wxWindow *parent, wxWindowID winid = wxID_ANY, wxPoint pos = wxDefaultPosition, wxSize size = wxSize(300, -1));
-    ~ConversationList();
-
-private:
-    void LoadCustom();
-
-private:
-    UserController _user_controller;
+    ConversationList(wxWindow* parent, wxWindowID winid = wxID_ANY, wxPoint pos = wxDefaultPosition, wxSize size = wxDefaultSize);
 };
