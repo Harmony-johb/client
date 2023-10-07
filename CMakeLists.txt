@@ -32,7 +32,9 @@ set(SRC_FILES
         src/view/Navigation.cpp
         src/view/Component.cpp
 
-            
+            src/view/components/ConversationView.cpp
+            src/view/components/NavBar.cpp
+            src/view/components/ServerView.cpp
 
             src/view/pages/MainPage.cpp
             src/view/pages/AuthenticationPage.cpp

@@ -18,7 +18,8 @@ private:
 	static MainFrame *_instance;
 
 private:
-	void Initialize();
+	void SetupMenuBar();
+	void SetupPages();
 
 private:
 	enum NavMenu

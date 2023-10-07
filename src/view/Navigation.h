@@ -7,15 +7,16 @@
 class Navigation
 {
 public:
-    Navigation();
+    Navigation(Component *parent = nullptr);
     ~Navigation();
 
 public:
-    Navigation &Add(std::string path, std::vector<Component *> composite);
+    Navigation &Add(std::string path, std::vector<Component *> composite, wxSizer *sizer = nullptr);
     Navigation &Set(std::string path);
 
 private:
-    std::unordered_map<std::string, std::vector<Component *>> _composites;
-    std::vector<Component *> _active_composite;
+    std::unordered_map<std::string, std::tuple<std::vector<Component *>, wxSizer *>> _composites;
+    std::tuple<std::vector<Component *>, wxSizer *> _active_composite;
     std::string _active_path;
+    Component *_parent;
 };

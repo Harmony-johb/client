@@ -11,24 +11,20 @@ void MainPage::LoadCustom()
 {
     SetBackgroundColour(wxColour(255, 0, 0));
 
-    // _nav_bar = new NavBar(this);
-    // _conversation_view = new ConversationView(this);
-    // _server_view = new ServerView(this);
-    // _navigation = Navigation()
-    //                  .Add("conversation_view", {_nav_bar, _conversation_view})
-    //                  .Add("server_view", {_nav_bar, _server_view})
-    //                  .Set("conversation_view");
+    _nav_bar = new NavBar(this);
+    _conversation_view = new ConversationView(this);
+    _server_view = new ServerView(this);
 
-    // wxGridBagSizer *gb_sizer = new wxGridBagSizer();
-    // gb_sizer->SetFlexibleDirection(wxBOTH);
-    // gb_sizer->SetNonFlexibleGrowMode(wxFLEX_GROWMODE_NONE);
+    _nav_bar->SetSize(wxSize(100, 100));
 
-    // // gb_sizer->AddGrowableCol(0, 0);
-    // // gb_sizer->AddGrowableCol(1, 0);
-    // // gb_sizer->AddGrowableCol(2, 1);
+    auto sizer = new wxBoxSizer(wxHORIZONTAL);
+    sizer->Add(_nav_bar, 0, wxEXPAND);
+    sizer->Add(_conversation_view, 1, wxEXPAND);
+    sizer->Add(_server_view, 1, wxEXPAND);
+    SetSizer(sizer);
 
-    // // gb_sizer->AddGrowableRow(0, 1);
-    // // gb_sizer->AddGrowableRow(1, 0);
-
-    // this->SetSizer(gb_sizer);
+    _navigation = Navigation(this)
+                      .Add("conversation_view", {_nav_bar, _conversation_view})
+                      .Add("server_view", {_nav_bar, _server_view})
+                      .Set("conversation_view");
 }

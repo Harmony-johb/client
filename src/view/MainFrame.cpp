@@ -15,7 +15,8 @@ MainFrame *MainFrame::Instance(const wxString title)
 MainFrame::MainFrame(const wxString title) : wxFrame(nullptr, wxID_ANY, title)
 {
 	Persistance::LoadWindowProps(*this);
-	Initialize();
+	SetupMenuBar();
+	SetupPages();
 }
 
 MainFrame::~MainFrame()
@@ -23,7 +24,7 @@ MainFrame::~MainFrame()
 	Persistance::SaveWindowProps(*this);
 }
 
-void MainFrame::Initialize()
+void MainFrame::SetupMenuBar()
 {
 	auto menu_bar = new wxMenuBar();
 	auto nav_menu = new wxMenu();
@@ -33,7 +34,10 @@ void MainFrame::Initialize()
 	menu_bar->Append(nav_menu, _T("&Page"));
 	nav_menu->Bind(wxEVT_MENU, &MainFrame::OnNavMenu, this);
 	SetMenuBar(menu_bar);
+}
 
+void MainFrame::SetupPages()
+{
 	_main_page = new MainPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
 	_settings_page = new SettingsPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
 	_authentication_page = new AuthenticationPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
