@@ -1,5 +1,9 @@
 #pragma once
 #include <Component.h>
+#include <Navigation.h>
+#include <ChatArea.h>
+#include <ControlArea.h>
+#include <ConversationList.h>
 
 class ConversationView : public Component
 {
@@ -9,4 +13,10 @@ public:
 
 private:
     void LoadCustom();
+
+private:
+    Navigation _navigation;
+    ChatArea *_chat_area;
+    ControlArea *_control_area;
+    ConversationList *_conversation_list;
 };

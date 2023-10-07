@@ -15,8 +15,6 @@ void MainPage::LoadCustom()
     _conversation_view = new ConversationView(this);
     _server_view = new ServerView(this);
 
-    _nav_bar->SetSize(wxSize(100, 100));
-
     auto sizer = new wxBoxSizer(wxHORIZONTAL);
     sizer->Add(_nav_bar, 0, wxEXPAND);
     sizer->Add(_conversation_view, 1, wxEXPAND);
