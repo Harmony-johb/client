@@ -8,6 +8,6 @@ class FakeDatabase
 public:
     static std::unordered_map<int, std::tuple<std::string, std::vector<int>, std::vector<int>, std::vector<int>>> user_table;
     static std::unordered_map<int, std::tuple<std::string, std::vector<int>>> chat_table;
-
-private:
+    static std::unordered_map<int, std::tuple<std::string>> server_table;
+    static std::unordered_map<int, std::tuple<std::string, int>> message_table;
 };
