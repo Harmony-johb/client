@@ -7,7 +7,6 @@ public:
     AuthenticationPage(wxWindow *parent, wxWindowID winid = wxID_ANY, wxPoint pos = wxDefaultPosition, wxSize size = wxDefaultSize);
     ~AuthenticationPage();
 
-public:
-    void Load();
-    void Unload();
+private:
+    void LoadCustom();
 };

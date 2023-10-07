@@ -9,13 +9,12 @@ MainPage::~MainPage()
 
 void MainPage::LoadCustom()
 {
-    GetPanel()->SetBackgroundColour(wxColour(255, 0, 0));
-    auto button = new wxButton(GetPanel(), wxID_ANY, "button");
-    button->Bind(wxEVT_BUTTON, &MainPage::button, this);
+    SetBackgroundColour(wxColour(255, 0, 0));
+
     // _nav_bar = new NavBar(this);
     // _conversation_view = new ConversationView(this);
     // _server_view = new ServerView(this);
-    // _navigator = Navigator()
+    // _navigation = Navigation()
     //                  .Add("conversation_view", {_nav_bar, _conversation_view})
     //                  .Add("server_view", {_nav_bar, _server_view})
     //                  .Set("conversation_view");
@@ -32,11 +31,4 @@ void MainPage::LoadCustom()
     // // gb_sizer->AddGrowableRow(1, 0);
 
     // this->SetSizer(gb_sizer);
-}
-
-void MainPage::button(wxCommandEvent &evt)
-{
-    wxLogMessage("button pressed in main page");
-    MainFrame::Instance()->_navigator.Set("settings_page");
-    MainFrame::Instance()->Layout();
 }

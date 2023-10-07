@@ -29,7 +29,7 @@ set(SRC_FILES
         src/model/User.cpp
 
         src/view/MainFrame.cpp
-        src/view/Navigator.cpp
+        src/view/Navigation.cpp
         src/view/Component.cpp
 
             

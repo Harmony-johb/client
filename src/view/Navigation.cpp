@@ -1,29 +1,33 @@
-#include "Navigator.h"
+#include "Navigation.h"
 #include <stdexcept>
 
-Navigator::Navigator()
+Navigation::Navigation()
 {
     _composites = {};
     _active_composite = {};
+    _active_path = "";
 }
 
-Navigator::~Navigator()
+Navigation::~Navigation()
 {
 }
 
-Navigator &Navigator::Add(std::string path, std::vector<Component *> composite)
+Navigation &Navigation::Add(std::string path, std::vector<Component *> composite)
 {
     _composites.insert({path, composite});
     return *this;
 }
 
-Navigator &Navigator::Set(std::string path)
+Navigation &Navigation::Set(std::string path)
 {
+    if (_active_path == path)
+        return *this;
     if (_composites.find(path) == _composites.end())
-        throw std::invalid_argument("No such path as '" + path + "' has been added to this navigator");
+        throw std::invalid_argument("No such path as '" + path + "' has been added to this navigation");
     for (auto component : _active_composite)
         component->Unload();
     _active_composite = _composites.at(path);
+    _active_path = path;
     for (auto component : _active_composite)
         component->Load();
     return *this;

@@ -3,7 +3,7 @@
 #include <MainPage.h>
 #include <AuthenticationPage.h>
 #include <SettingsPage.h>
-#include <Navigator.h>
+#include <Navigation.h>
 
 class MainFrame : public wxFrame
 {
@@ -20,10 +20,17 @@ private:
 private:
 	void Initialize();
 
-public:
-	Navigator _navigator;
+private:
+	enum NavMenu
+	{
+		Main,
+		Auth,
+		Settings
+	};
+	void OnNavMenu(wxCommandEvent &evt);
 
 private:
+	Navigation _navigation;
 	MainPage *_main_page;
 	AuthenticationPage *_authentication_page;
 	SettingsPage *_settings_page;

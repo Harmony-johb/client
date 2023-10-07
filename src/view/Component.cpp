@@ -1,12 +1,11 @@
 #include "Component.h"
 #include <stdexcept>
 
-Component::Component(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size)
+Component::Component(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size) : wxPanel(parent, winid, pos, size)
 {
     _parent = parent;
-    _winid = winid;
-    _pos = pos;
-    _size = size;
+    Reparent(nullptr);
+    Hide();
 }
 
 Component::~Component()
@@ -15,16 +14,15 @@ Component::~Component()
 
 void Component::Load()
 {
-    _panel = new wxPanel(_parent, _winid, _pos, _size);
+    Reparent(_parent);
     LoadCustom();
+    Layout();
+    Show();
 }
 
 void Component::Unload()
 {
-    _panel->Destroy();
-}
-
-wxPanel *Component::GetPanel()
-{
-    return _panel;
+    DestroyChildren();
+    Reparent(nullptr);
+    Hide();
 }

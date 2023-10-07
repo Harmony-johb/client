@@ -9,6 +9,4 @@ public:
 
 private:
     void LoadCustom();
-
-    void button(wxCommandEvent &evt);
 };

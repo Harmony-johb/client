@@ -25,12 +25,40 @@ MainFrame::~MainFrame()
 
 void MainFrame::Initialize()
 {
+	auto menu_bar = new wxMenuBar();
+	auto nav_menu = new wxMenu();
+	nav_menu->Append(NavMenu::Main, _T("&Main"));
+	nav_menu->Append(NavMenu::Auth, _T("&Auth"));
+	nav_menu->Append(NavMenu::Settings, _T("&Settings"));
+	menu_bar->Append(nav_menu, _T("&Page"));
+	nav_menu->Bind(wxEVT_MENU, &MainFrame::OnNavMenu, this);
+	SetMenuBar(menu_bar);
+
 	_main_page = new MainPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
 	_settings_page = new SettingsPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
-	// _authentication_page = new AuthenticationPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
-	_navigator = Navigator()
-					 .Add("main_page", {_main_page})
-					 .Add("settings_page", {_settings_page})
-					 //  .Add("authentication_page", {_authentication_page})
-					 .Set("main_page");
+	_authentication_page = new AuthenticationPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
+	_navigation = Navigation()
+					  .Add("main_page", {_main_page})
+					  .Add("settings_page", {_settings_page})
+					  .Add("authentication_page", {_authentication_page})
+					  .Set("main_page");
+}
+
+void MainFrame::OnNavMenu(wxCommandEvent &evt)
+{
+	switch (evt.GetId())
+	{
+	case NavMenu::Main:
+		_navigation.Set("main_page");
+		break;
+	case NavMenu::Auth:
+		_navigation.Set("authentication_page");
+		break;
+	case NavMenu::Settings:
+		_navigation.Set("settings_page");
+		break;
+	default:
+		break;
+	}
+	Layout();
 }

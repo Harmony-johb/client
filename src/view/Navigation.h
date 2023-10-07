@@ -4,17 +4,18 @@
 #include <tuple>
 #include <unordered_map>
 
-class Navigator
+class Navigation
 {
 public:
-    Navigator();
-    ~Navigator();
+    Navigation();
+    ~Navigation();
 
 public:
-    Navigator &Add(std::string path, std::vector<Component *> composite);
-    Navigator &Set(std::string path);
+    Navigation &Add(std::string path, std::vector<Component *> composite);
+    Navigation &Set(std::string path);
 
 private:
     std::unordered_map<std::string, std::vector<Component *>> _composites;
     std::vector<Component *> _active_composite;
+    std::string _active_path;
 };
