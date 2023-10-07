@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+// TODO forward declare to resolve circular dependecy with User -> Chat -> Message -> User. Architectural change is needed
 class User;
 
 /**
