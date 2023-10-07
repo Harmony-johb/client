@@ -3,20 +3,10 @@
 #include <wx/wx.h>
 #include <wx/gbsizer.h>
 
-MainFrame *MainFrame::_instance = 0;
-
-MainFrame *MainFrame::Instance(const wxString title)
-{
-	if (_instance == 0)
-		_instance = new MainFrame(title);
-	return _instance;
-}
-
 MainFrame::MainFrame(const wxString title) : wxFrame(nullptr, wxID_ANY, title)
 {
 	Persistance::LoadWindowProps(*this);
-	SetupMenuBar();
-	SetupPages();
+	Initialize();
 }
 
 MainFrame::~MainFrame()
@@ -24,45 +14,28 @@ MainFrame::~MainFrame()
 	Persistance::SaveWindowProps(*this);
 }
 
-void MainFrame::SetupMenuBar()
+void MainFrame::Initialize()
 {
-	auto menu_bar = new wxMenuBar();
-	auto nav_menu = new wxMenu();
-	nav_menu->Append(NavMenu::Main, _T("&Main"));
-	nav_menu->Append(NavMenu::Auth, _T("&Auth"));
-	nav_menu->Append(NavMenu::Settings, _T("&Settings"));
-	menu_bar->Append(nav_menu, _T("&Page"));
-	nav_menu->Bind(wxEVT_MENU, &MainFrame::OnNavMenu, this);
-	SetMenuBar(menu_bar);
-}
+	wxGridBagSizer* gb_sizer = new wxGridBagSizer();
+	gb_sizer->SetFlexibleDirection(wxBOTH);
+	gb_sizer->SetNonFlexibleGrowMode(wxFLEX_GROWMODE_NONE);
 
-void MainFrame::SetupPages()
-{
-	_main_page = new MainPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
-	_settings_page = new SettingsPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
-	_authentication_page = new AuthenticationPage(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1));
-	_navigation = Navigation()
-					  .Add("main_page", {_main_page})
-					  .Add("settings_page", {_settings_page})
-					  .Add("authentication_page", {_authentication_page})
-					  .Set("main_page");
-}
+	side_bar_1 = new SideBar1(this, wxID_ANY, wxDefaultPosition, wxSize(75, -1));
+	side_bar_2 = new SideBar2(this, wxID_ANY, wxDefaultPosition, wxSize(200, -1));
+	main_area = new MainArea(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+	ctrl_area = new ControlArea(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+	
+	gb_sizer->Add( side_bar_1, wxGBPosition( 0, 0 ), wxGBSpan( 2, 1 ), wxEXPAND);
+	gb_sizer->Add( side_bar_2, wxGBPosition( 0, 1 ), wxGBSpan( 1, 1 ), wxEXPAND);
+	gb_sizer->Add( main_area, wxGBPosition( 0, 2 ), wxGBSpan( 2, 1 ), wxEXPAND);
+	gb_sizer->Add( ctrl_area, wxGBPosition( 1, 1 ), wxGBSpan( 1, 1 ), wxEXPAND);
 
-void MainFrame::OnNavMenu(wxCommandEvent &evt)
-{
-	switch (evt.GetId())
-	{
-	case NavMenu::Main:
-		_navigation.Set("main_page");
-		break;
-	case NavMenu::Auth:
-		_navigation.Set("authentication_page");
-		break;
-	case NavMenu::Settings:
-		_navigation.Set("settings_page");
-		break;
-	default:
-		break;
-	}
-	Layout();
+	gb_sizer->AddGrowableCol(0, 0);
+	gb_sizer->AddGrowableCol(1, 0);
+	gb_sizer->AddGrowableCol(2, 1);
+	
+	gb_sizer->AddGrowableRow(0, 1);
+	gb_sizer->AddGrowableRow(1, 0);
+
+	this->SetSizer(gb_sizer);
 }
