@@ -21,7 +21,7 @@ void MainPage::LoadCustom()
     sizer->Add(_server_view, 1, wxEXPAND);
     SetSizer(sizer);
 
-    _navigation = Navigation(this)
+    _navigation = Navigation()
                       .Add("conversation_view", {_nav_bar, _conversation_view})
                       .Add("server_view", {_nav_bar, _server_view})
                       .Set("conversation_view");

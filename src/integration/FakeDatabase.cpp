@@ -2,9 +2,9 @@
 
 // {user_id, {username, {server_ids}, {chat_ids}, {friend_ids}}}
 std::unordered_map<int, std::tuple<std::string, std::vector<int>, std::vector<int>, std::vector<int>>> FakeDatabase::user_table = {
-    {1, {"jakob", {1}, {1}, {2, 3, 4, 5, 6, 7, 8}}},
+    {1, {"jakob", {1}, {1, 6}, {2, 3, 4, 5, 6, 7, 8}}},
     {2, {"hugo", {1}, {1}, {1, 3, 4}}},
-    {3, {"anton", {1}, {2}, {1, 2}}},
+    {3, {"anton", {1}, {2, 6}, {1, 2}}},
     {4, {"wille", {1}, {2}, {1, 2}}},
     {5, {"kevin", {1}, {3}, {1}}},
     {6, {"leon", {1}, {3}, {1}}},
@@ -21,6 +21,7 @@ std::unordered_map<int, std::tuple<std::string, std::vector<int>>> FakeDatabase:
     {3, {"Kevin and Leons chat", {9, 10, 11, 12}}},
     {4, {"Hofer and Niclas chat", {13, 14, 15, 16}}},
     {5, {"Hitoshisan and Rakuchan chat", {17, 18, 19, 20}}},
+    {6, {"Jakob and Antons chat", {}}},
 };
 
 // {server_id, {server_name}}
