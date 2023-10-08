@@ -1,22 +1,38 @@
 #pragma once
 #include <wx/wx.h>
-#include <SideBar1.h>
-#include <SideBar2.h>
-#include <MainArea.h>
-#include <ControlArea.h>
+#include <MainPage.h>
+#include <AuthenticationPage.h>
+#include <SettingsPage.h>
+#include <Navigation.h>
 
 class MainFrame : public wxFrame
 {
 public:
+	static MainFrame *Instance(const wxString title = "");
+
+protected:
 	MainFrame(const wxString title);
 	~MainFrame();
 
 private:
-	void Initialize();
+	static MainFrame *_instance;
 
 private:
-	SideBar1* side_bar_1;
-	SideBar2* side_bar_2;
-	MainArea* main_area;
-	ControlArea* ctrl_area;
+	void SetupMenuBar();
+	void SetupPages();
+
+private:
+	enum NavMenu
+	{
+		Main,
+		Auth,
+		Settings
+	};
+	void OnNavMenu(wxCommandEvent &evt);
+
+private:
+	Navigation _navigation;
+	MainPage *_main_page;
+	AuthenticationPage *_authentication_page;
+	SettingsPage *_settings_page;
 };

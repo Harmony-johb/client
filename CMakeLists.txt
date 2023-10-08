@@ -13,34 +13,43 @@ include(${wxWidgets_USE_FILE})
 
 # Define a variable containing a list of source files for the project
 set(SRC_FILES 
-    src/controller/ChatController.cpp
+    src/App.cpp
 
-    src/integration/Persistance.cpp
+        src/controller/ChatController.cpp
+        src/controller/MessageController.cpp
+        src/controller/ServerController.cpp
+        src/controller/UserController.cpp
 
-    src/model/App.cpp
-    src/model/Chat.cpp
-    src/model/Message.cpp
-    src/model/User.cpp
+        src/integration/FakeDatabase.cpp
+        src/integration/Persistance.cpp
 
-    src/view/MainFrame.cpp
+        src/model/SessionState.cpp
+        src/model/Chat.cpp
+        src/model/Message.cpp
+        src/model/Server.cpp
+        src/model/User.cpp
 
-        src/view/components/ServerList.cpp
-        src/view/components/ConversationList.cpp
-        src/view/components/ChatArea.cpp
-        src/view/components/MessageList.cpp
-        src/view/components/MessageWritingBox.cpp
+        src/view/MainFrame.cpp
+        src/view/Navigation.cpp
+        src/view/Component.cpp
 
-        src/view/containers/ControlArea.cpp
-        src/view/containers/MainArea.cpp
-        src/view/containers/SideBar1.cpp
-        src/view/containers/SideBar2.cpp
+            src/view/components/ConversationView.cpp
+            src/view/components/NavBar.cpp
+            src/view/components/ServerView.cpp
+            src/view/components/ChatArea.cpp
+            src/view/components/ControlArea.cpp
+            src/view/components/ConversationList.cpp
+
+            src/view/pages/MainPage.cpp
+            src/view/pages/AuthenticationPage.cpp
+            src/view/pages/SettingsPage.cpp
 )
 
 # Define the build target for the executable
 add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SRC_FILES})
 
 # Define include directory containing header files
-target_include_directories(${PROJECT_NAME} PRIVATE src/controller src/integration src/model src/view src/view/components src/view/containers)
+target_include_directories(${PROJECT_NAME} PRIVATE src src/controller src/integration src/model src/util src/view src/view/components src/view/pages)
 
 # Link required libraries to the executable
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
