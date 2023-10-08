@@ -2,7 +2,6 @@
 #include <wx/wx.h>
 
 // TODO add logging levels
-#define DEBUG
 #ifdef DEBUG
 #define CREATE_LOGGER(parent) Logger::CreateLogger(parent)
 #define LOG_MESSAGE(msg) Logger::LogMessage(msg)
