@@ -12,6 +12,9 @@ void ConversationList::LoadCustom()
     SetBackgroundColour(wxColour(43, 45, 49));
     _user_controller = UserController();
     std::vector<std::string> conversation_names = _user_controller.GetConversationNames();
+    std::string bla = "";
     for (auto conversation_name : conversation_names)
-        wxLogMessage(wxString(conversation_name.c_str(), wxConvUTF8));
+        bla.append(conversation_name.append("/n"));
+
+    wxLogMessage(wxString(bla.c_str(), wxConvUTF8));
 }
