@@ -29,6 +29,8 @@ set(SRC_FILES
         src/model/Server.cpp
         src/model/User.cpp
 
+        src/util/Logger.cpp
+
         src/view/MainFrame.cpp
         src/view/Navigation.cpp
         src/view/Component.cpp

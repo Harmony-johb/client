@@ -1,4 +1,5 @@
 #include "ConversationList.h"
+#include <Logger.h>
 #include <User.h>
 
 ConversationList::ConversationList(wxWindow *parent, wxWindowID winid, wxPoint pos, wxSize size) : Component(parent, winid, pos, size) {}
@@ -16,5 +17,5 @@ void ConversationList::LoadCustom()
     for (auto conversation_name : conversation_names)
         bla.append(conversation_name.append("/n"));
 
-    wxLogMessage(wxString(bla.c_str(), wxConvUTF8));
+    LOG_MESSAGE(wxString(bla.c_str(), wxConvUTF8));
 }
