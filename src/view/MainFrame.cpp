@@ -1,4 +1,5 @@
 #include "MainFrame.h"
+#include <Logger.h>
 #include <Persistance.h>
 #include <wx/wx.h>
 #include <wx/gbsizer.h>
@@ -14,6 +15,10 @@ MainFrame *MainFrame::Instance(const wxString title)
 
 MainFrame::MainFrame(const wxString title) : wxFrame(nullptr, wxID_ANY, title)
 {
+	CREATE_LOGGER(this);
+	LOG_MESSAGE("a message");
+	LOG_WARNING("a warning");
+	LOG_ERROR("an error");
 	Persistance::LoadWindowProps(*this);
 	SetupMenuBar();
 	SetupPages();

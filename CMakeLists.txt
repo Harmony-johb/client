@@ -5,6 +5,19 @@ project(harmony)
 # Specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 
+# Set configuration parameters
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    # Configuration for Debug build
+    message("Configuring for Debug build")
+    add_definitions(-DDEBUG)  # Define a DEBUG preprocessor macro
+    set(DEBUG_FLAG TRUE)      # Set a CMake variable for conditional use
+elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
+    # Configuration for Release build
+    message("Configuring for Release build")
+    add_definitions(-DRELEASE)  # Define a RELEASE preprocessor macro
+    set(RELEASE_FLAG TRUE)      # Set a CMake variable for conditional use
+endif()
+
 # Request the required wxWidgets libs
 find_package(wxWidgets COMPONENTS base core net xml gl media ribbon stc webview html aui xrc richtext qa REQUIRED)
 
@@ -28,6 +41,8 @@ set(SRC_FILES
         src/model/Message.cpp
         src/model/Server.cpp
         src/model/User.cpp
+
+        src/util/Logger.cpp
 
         src/view/MainFrame.cpp
         src/view/Navigation.cpp
@@ -53,3 +68,4 @@ target_include_directories(${PROJECT_NAME} PRIVATE src src/controller src/integr
 
 # Link required libraries to the executable
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
+
