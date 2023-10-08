@@ -5,7 +5,7 @@
 using ObserverID = std::size_t;
 
 template <typename... callback_arg_types>
-class Entity
+class Observable
 {
 public:
     using CallbackFunction = void (*)(callback_arg_types...);
